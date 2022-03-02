@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginAction } from '../redux/actions';
+import { MIN_PASS_LENGTH } from '../consts';
 
 function Login() {
-  const MIN_PASS_LENGTH = 8;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState({
@@ -12,6 +12,10 @@ function Login() {
     password: '',
   });
   const [passVisibility, setPassVisibility] = useState(false);
+  const [invalidFields, setInvalidFields] = useState({
+    wrongPassword: false,
+    inexistentUser: false,
+  });
 
   const inputHandler = ({ target: { id, value } }) => {
     setUser((prevState) => ({
@@ -21,8 +25,22 @@ function Login() {
   }
 
   const logButton = () => {
-    dispatch(loginAction(user));
-    navigate('/home');
+    const { email, password } = user;
+    const userAccount = JSON.parse(localStorage.getItem(email));
+
+    if (userAccount
+    && password === userAccount.password) {
+      dispatch(loginAction(user));
+      navigate('/home');
+    } else if (!userAccount) {
+      setInvalidFields({ wrongPassword: false, inexistentUser: true });
+      setTimeout(() =>
+      setInvalidFields((prevState) => ({ ...prevState, inexistentUser: false })), 5000)
+    } else if (password !== userAccount.password) {
+      setInvalidFields({ inexistentUser: false, wrongPassword: true });
+      setTimeout(() =>
+      setInvalidFields((prevState) => ({ ...prevState, wrongPassword: false })), 5000)
+    }
   }
 
   return (
@@ -62,10 +80,18 @@ function Login() {
             && user.email.includes('.com')
             && user.password.length >= MIN_PASS_LENGTH)
           }
-        >Log In!</button>
+        >Log In</button>
         <button onClick={ () => navigate('createaccount') }>
           Create account
         </button>
+        {invalidFields.inexistentUser
+        && <p style={ { color: 'red' } }>
+            There's nobody with this email in our database
+          </p>}
+        {invalidFields.wrongPassword
+        && <p style={ { color: 'red' } }>
+            Wrong password
+          </p>}
       </form>
     </>
   );
