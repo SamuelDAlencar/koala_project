@@ -6,6 +6,7 @@ export default function CreateAccount() {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     email: '',
+    userName: '',
     password: '',
   });
   const [passVisibility, setPassVisibility] = useState(false);
@@ -43,6 +44,14 @@ export default function CreateAccount() {
           <input
             id="email"
             data-testid="email-input"
+            onChange={ inputHandler }
+          />
+        </label>
+        <label htmlFor="user-email">
+          Username
+          <input
+            id="userName"
+            data-testid="username-input"
             onChange={ inputHandler }
           />
         </label>

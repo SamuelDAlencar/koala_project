@@ -9,6 +9,7 @@ function Login() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: '',
+    userName: '',
     password: '',
   });
   const [passVisibility, setPassVisibility] = useState(false);
@@ -27,9 +28,9 @@ function Login() {
   const logButton = () => {
     const { email, password } = user;
     const userAccount = JSON.parse(localStorage.getItem(email));
-
+    
     if (userAccount
-    && password === userAccount.password) {
+      && password === userAccount.password) {
       dispatch(loginAction(user));
       navigate('/home');
     } else if (!userAccount) {
