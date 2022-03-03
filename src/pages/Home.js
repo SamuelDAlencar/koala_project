@@ -41,10 +41,10 @@ function Home() {
       <ul>
         {store.products
           && store.products.map((product) => 
-          <>
-            <li key={product.id}>{product.title}</li>
+          <section key={product.id}>
+            <li>{product.title}</li>
             <img alt="thumbnail" src={product.thumbnail} />
-          </>
+          </section>
         )}
       </ul>
     </>

@@ -25,7 +25,7 @@ export default function CreateAccount() {
 
     if (!userAccount) {
       localStorage.setItem(email, JSON.stringify(newUser));
-      navigate('/');
+      navigate('/login');
     }
 
     if (userAccount) {
@@ -81,7 +81,7 @@ export default function CreateAccount() {
             && newUser.password.length >= MIN_PASS_LENGTH)
           }
         >Create account</button>
-        <button onClick={ () => navigate('/') }>Log In</button>
+        <button onClick={ () => navigate('/login') }>Log In</button>
         {userExists
         && <p style={ { color: 'red' } }>This user already exists</p>}
       </form>

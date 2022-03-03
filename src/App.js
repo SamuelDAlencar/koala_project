@@ -16,9 +16,9 @@ function App() {
     <Provider store={ store }>
       <Router>
         <Routes>
-          <Route exact path='/' element={<Login />} />
+          <Route exact path='/' element={<Home />} />
           <Route exact path='/createaccount' element={<CreateAccount />} />
-          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/login' element={<Login />} />
           <Route exact path='/product' element={<Product />} />
           <Route exact path='/cart' element={<Cart />} />
         </Routes>

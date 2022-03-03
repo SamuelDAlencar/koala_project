@@ -32,7 +32,7 @@ function Login() {
     if (userAccount
       && password === userAccount.password) {
       dispatch(loginAction(user));
-      navigate('/home');
+      navigate('/');
     } else if (!userAccount) {
       setInvalidFields({ wrongPassword: false, inexistentUser: true });
       setTimeout(() =>
@@ -82,7 +82,7 @@ function Login() {
             && user.password.length >= MIN_PASS_LENGTH)
           }
         >Log In</button>
-        <button onClick={ () => navigate('createaccount') }>
+        <button onClick={ () => navigate('/createaccount') }>
           Create account
         </button>
         {invalidFields.inexistentUser
