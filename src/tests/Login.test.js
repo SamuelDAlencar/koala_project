@@ -6,14 +6,11 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 
 describe('Login', () => {
-  it('Tests if the first page is the login page', () => {
+  
+  it('Tests if the user is redirected to the Log In page when clicking the Login button', () => {
     render(<App />)
-    const loginText = screen.getByText('Login');
-    expect(loginText).toBeInTheDocument();
-  });
-
-  it('Tests if there is a button with the text "Log In"', () => {
-    render(<App />)
+    const logInPageButton = screen.getByRole('button', { name: 'Login'});
+    userEvent.click(logInPageButton);
     const loginButton = screen.getByRole('button', { name: 'Log In' });
     expect(loginButton).toBeInTheDocument();
   });
