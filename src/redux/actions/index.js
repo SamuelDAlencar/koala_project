@@ -6,6 +6,7 @@ export const loginAction = (user) => ({
   type: LOG_IN,
   payload: {
     email: user.email,
+    userName: user.userName,
     password: user.password,
   }
 })
@@ -13,11 +14,11 @@ export const loginAction = (user) => ({
 const requestProductsAction = () => ({ type: REQUEST_PRODUCTS })  
 const requestProductsSuccess = (data) => ({ type: REQUEST_PRODUCTS_SUCCESS, payload: data })  
 
-export const fetchProducts = () => {
+export const fetchProducts = (search) => {
   return async (dispatch) => {
     dispatch(requestProductsAction());
     try {
-      const url = 'https://api.mercadolibre.com/sites/MLB/search?q=computador'
+      const url = `https://api.mercadolibre.com/sites/MLB/search?q=${search}`
       const response = await fetch(url);
       const data = await response.json();
       dispatch(requestProductsSuccess(data))
