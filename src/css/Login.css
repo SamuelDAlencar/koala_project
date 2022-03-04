@@ -34,7 +34,7 @@ body {
   font-size: 90%;
   padding: 10px;
   width: 50%;
-  margin: 0 1% 5% 1%;
+  margin: 0 0 5% 1%;
   border: 0;
   border-bottom: 1px solid rgb(0, 0, 0);
   border-radius: 3px;
@@ -47,18 +47,29 @@ body {
   text-decoration: none;
 }
 
+.password-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .password-visibility {
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  margin: 0;
   font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid rgb(83, 83, 83);
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
+  padding: 0.6em;
+  margin-bottom: 15px;
+  background-image: url("https://img.icons8.com/material-sharp/20/000000/visible.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.password-visibility:checked {
+  background-image: url("https://img.icons8.com/material-outlined/20/000000/invisible.png");
+  cursor: pointer;
 }
 
 .login-form-button:nth-of-type(1) {
