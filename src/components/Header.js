@@ -29,7 +29,7 @@ export default function Header() {
           </button>
           <button
             type="button"
-            onClick={ () => navigate('/createaccount') }
+            onClick={ () => navigate('/signin') }
           >
           Create account
         </button>
