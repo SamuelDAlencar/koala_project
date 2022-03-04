@@ -1,0 +1,80 @@
+* {
+  font-family: 'Gotham', sans-serif;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  font-size: 110%;
+}
+
+.wave-top {
+  position: fixed;
+  height: 100px;
+}
+
+.login-h1 {
+  color: rgb(68, 68, 68);
+  width: 120px;
+  margin: 150px 117px 0px;
+}
+
+.login-form {
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 93%;
+  padding: 80px 15px 15px;
+}
+
+.login-form-input {
+  color: rgb(0, 0, 0);
+  font-size: 90%;
+  padding: 10px;
+  width: 50%;
+  margin: 0 1% 5% 1%;
+  border: 0;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  background-color: inherit;
+}
+
+.login-form-input:focus {
+  outline: none;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.password-visibility {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid rgb(83, 83, 83);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+}
+
+.login-form-button:nth-of-type(1) {
+  margin-top: 70px;
+}
+
+.login-form-button {
+  color: white;
+  font-size: 90%;
+  padding: 15px 20px;
+  margin-top: 20px;
+  background-color: rgb(126, 86, 126);
+  border: 0;
+  border-radius: 5px;
+}
+
+.login-form-button:disabled {
+  color: rgb(165, 165, 165);
+}
