@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Login from './pages/Login';
-import CreateAccount from './pages/CreateAccount';
+import SignIn from './pages/SignIn';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/createaccount' element={<CreateAccount />} />
+          <Route exact path='/signin' element={<SignIn />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/product' element={<Product />} />
           <Route exact path='/cart' element={<Cart />} />
