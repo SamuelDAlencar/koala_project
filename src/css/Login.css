@@ -1,67 +1,74 @@
-* {
-  font-family: 'Gotham', sans-serif;
-}
-
-body {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  font-size: 110%;
-}
-
-.wave-top {
-  position: fixed;
-  height: 100px;
+html, body {
+  background-color: #222831;
 }
 
 .login-h1 {
-  color: rgb(68, 68, 68);
+  color: #EEEEEE;
   width: 120px;
-  margin: 150px 117px 0px;
+  margin: 0 0 80px;
 }
 
 .login-form {
-  color: rgb(0, 0, 0);
+  background-color: #222831;
+  color: #EEEEEE;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 93%;
-  padding: 80px 15px 15px;
+  padding: 100px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.login-form-input__label {
+  width: 200%;
+  margin: 5% 0;
 }
 
 .login-form-input {
-  color: rgb(0, 0, 0);
+  color: #EEEEEE;
   font-size: 90%;
   padding: 10px;
-  width: 50%;
+  width: 60%;
   margin: 0 0 5% 1%;
   border: 0;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  border-radius: 3px;
+  border-bottom: 1px solid #EEEEEE;
+  border-radius: 0 0 5px 0;
   background-color: inherit;
 }
 
 .login-form-input:focus {
   outline: none;
-  color: rgb(0, 0, 0);
+  color: #EEEEEE;
   text-decoration: none;
+}
+
+.login-form-input:-webkit-autofill,
+.login-form-input:-webkit-autofill:hover, 
+.login-form-input:-webkit-autofill:focus, 
+.login-form-input:-webkit-autofill:active{
+  -webkit-text-size-adjust: 90%;
+  -webkit-text-fill-color: #EEEEEE !important;
+  -webkit-box-shadow: 0 0 0 30px #222831 inset !important;
 }
 
 .password-section {
   display: flex;
+  width: 200%;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin: 15px 0 0;
 }
 
 .password-visibility {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #fff;
   font: inherit;
-  padding: 0.6em;
+  padding: 1em;
   margin-bottom: 15px;
-  background-image: url("https://img.icons8.com/material-sharp/20/000000/visible.png");
+  background-image: url("https://img.icons8.com/color/40/000000/invisible.png");
+  background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -69,7 +76,8 @@ body {
 }
 
 .password-visibility:checked {
-  background-image: url("https://img.icons8.com/material-outlined/20/000000/invisible.png");
+  background-image: url("https://img.icons8.com/color/48/000000/visible--v1.png");
+  background-size: 70%;
   cursor: pointer;
 }
 
@@ -82,11 +90,14 @@ body {
   font-size: 90%;
   padding: 15px 20px;
   margin-top: 20px;
-  background-color: rgb(126, 86, 126);
+  background-color: #00ADB5;
   border: 0;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .login-form-button:disabled {
   color: rgb(165, 165, 165);
+  cursor: not-allowed;
 }
+

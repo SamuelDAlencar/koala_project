@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import '../css/Header.css';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -16,9 +17,14 @@ export default function Header() {
   }, []);
 
   return (
-    <header>
+    <header className="header">
+      <img
+        alt="user_icon"
+        src="https://img.icons8.com/fluency-systems-regular/48/000000/user.png"
+        className="user_icon__img"
+      />
       {user
-        ? <h1>{`Hey, ${user}!`}</h1>
+        ? <h1 className="user__h1">{`Hey, ${user}!`}</h1>
         : (
         <>
           <button
@@ -35,6 +41,11 @@ export default function Header() {
         </button>
         </>)
       }
+      <img
+        alt="options_icon"
+        className="options_icon"
+        src="https://img.icons8.com/ios/50/000000/bulleted-list.png"
+      />
     </header> 
   );
 }

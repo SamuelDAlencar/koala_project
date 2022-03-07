@@ -1,0 +1,32 @@
+.header {
+  color: white;
+  height: fit-content;
+  display: flex;
+  background-color: rgb(126, 86, 126);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user_icon__img {
+  padding: 2px;
+  height: 25px;
+  margin: auto 2%;
+  background-color: white;
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 50%;
+}
+
+.user__h1 {
+  font-size: 100%;
+  width: 40%;
+  text-align: center;
+}
+
+.options_icon {
+  padding: 2px;
+  height: 25px;
+  margin: auto 2%;
+  background-color: white;
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 5%;
+}
