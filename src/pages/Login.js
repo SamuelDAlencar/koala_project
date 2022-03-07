@@ -47,10 +47,9 @@ function Login() {
 
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="wave-top"><path fill="#582d58" fillOpacity="1" d="M0,224L40,197.3C80,171,160,117,240,128C320,139,400,213,480,234.7C560,256,640,224,720,176C800,128,880,64,960,58.7C1040,53,1120,107,1200,138.7C1280,171,1360,181,1400,186.7L1440,192L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z" ></path></svg>
-      <h1 className="login-h1">Log-In</h1>
       <form className='login-form'>
-        <label htmlFor="user-email">
+        <h1 className="login-h1">Log-In</h1>
+        <label className="login-form-input__label"  htmlFor="user-email">
           Email:
           {' '}
           <input
@@ -61,7 +60,7 @@ function Login() {
           />
         </label>
         <section className="password-section">
-          <label htmlFor="password">
+          <label className="login-form-input__label" htmlFor="password">
             Password:
             {' '}
             <input

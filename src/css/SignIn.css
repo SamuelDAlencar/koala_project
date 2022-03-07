@@ -1,88 +1,46 @@
-* {
-  font-family: 'Gotham', sans-serif;
-}
-
-body {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  font-size: 110%;
-}
-
-.wave-top {
-  position: fixed;
-  height: 100px;
-}
-
 .create_account-h1 {
-  color: rgb(68, 68, 68);
-  width: fit-content;
-  margin: 120px 115px 0px;
+  color: #EEEEEE;
+  width: 120px;
+  margin: 0 0 50px;
 }
 
 .create_account-form {
-  color: rgb(0, 0, 0);
+  background-color: #222831;
+  color: #EEEEEE;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   width: 93%;
-  padding: 80px 15px 15px;
+  padding: 100px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
 
 .create_account-form-input {
-  color: rgb(0, 0, 0);
+  color: #EEEEEE;
   font-size: 90%;
   padding: 10px;
-  width: 50%;
+  width: 60%;
   margin: 0 0 5% 1%;
   border: 0;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  border-radius: 3px;
+  border-bottom: 1px solid #EEEEEE;
+  border-radius: 0 0 5px 0;
   background-color: inherit;
+}
+
+.create_account-form-input:-webkit-autofill,
+.create_account-form-input:-webkit-autofill:hover, 
+.create_account-form-input:-webkit-autofill:focus, 
+.create_account-form-input:-webkit-autofill:active{
+  -webkit-text-size-adjust: 90%;
+  -webkit-text-fill-color: #EEEEEE !important;
+  -webkit-box-shadow: 0 0 0 30px #222831 inset !important;
 }
 
 .create_account-form-input:focus {
   outline: none;
-  color: rgb(0, 0, 0);
+  color: #EEEEEE;
   text-decoration: none;
-}
-
-.password-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.password-visibility {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  font: inherit;
-  padding: 0.6em;
-  margin-bottom: 15px;
-  background-image: url("https://img.icons8.com/material-sharp/20/000000/visible.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  opacity: calc(0.8);
-}
-
-.password-visibility:checked {
-  background-image: url("https://img.icons8.com/material-outlined/20/000000/invisible.png");
-  cursor: pointer;
-}
-
-.login-form-button {
-  color: white;
-  font-size: 90%;
-  padding: 15px 20px;
-  margin-top: 50px;
-  background-color: rgb(126, 86, 126);
-  border: 0;
-  border-radius: 5px;
-}
-
-.login-form-button:disabled {
-  color: rgb(165, 165, 165);
 }
