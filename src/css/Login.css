@@ -4,8 +4,9 @@ html, body {
 
 .login-h1 {
   color: #EEEEEE;
-  width: 120px;
+  width: 150px;
   margin: 0 0 80px;
+  font-size: 250%;
 }
 
 .login-form {
@@ -24,6 +25,7 @@ html, body {
 .login-form-input__label {
   width: 200%;
   margin: 5% 0;
+  font-size: 120%;
 }
 
 .login-form-input {
@@ -82,14 +84,14 @@ html, body {
 }
 
 .login-form-button:nth-of-type(1) {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .login-form-button {
   color: white;
-  font-size: 90%;
+  font-size: 120%;
   padding: 15px 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #00ADB5;
   border: 0;
   border-radius: 5px;
@@ -97,7 +99,7 @@ html, body {
 }
 
 .login-form-button:disabled {
-  color: rgb(165, 165, 165);
+  color: rgb(204, 204, 204);
   cursor: not-allowed;
 }
 
