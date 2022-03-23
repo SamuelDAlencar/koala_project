@@ -1,10 +1,66 @@
-import { Button } from "@material-ui/core";
+import { Button, createTheme, makeStyles, ThemeProvider, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MIN_PASS_LENGTH } from '../consts';
 import '../css/SignIn.css'
 
 export default function SignIn() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#00ADB5'
+      }
+    }
+  });
+
+  const useStyles = makeStyles({
+    title: {
+      color: '#EEEEEE',
+      margin: "100px 0 70px",
+    },
+
+    inputSection: {
+      display: "flex",
+      width: "90%",
+      maxWidth: "500px",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "15px 0 0 0",
+    },
+
+    input: {
+      width: "100%",
+      color: "#EEEEEE",
+      fontSize: "100%",
+    },
+
+    buttonSection: {
+    },
+
+    buttons: {
+      width: "60%",
+      maxWidth: "300px",
+      fontSize: "85%",
+      padding: "15px",
+      marginTop: "20px",
+    },
+
+    container: {
+      borderRadius: "0",
+      height: '100vh',
+      width: '100vw',
+      backgroundColor: "#222831",
+      color: "#EEEEEE",
+      display: "flex",
+      flexDirection: "column",
+      textAlign: "center",
+      alignItems: "center",
+    },
+  });
+  const classes = useStyles();
+
+  //---------------------------------------------------------------
+
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     email: '',
@@ -38,33 +94,25 @@ export default function SignIn() {
   }
 
   return (
-    <>
+    <ThemeProvider theme={ theme }>
       <form className="create_account-form">
-        <h1 className="create_account-h1">Sign-In</h1>
-        <label className="login-form-input__label" htmlFor="user-email">
-          Email:
-          {' '}
+      <Typography
+          variant="h2"
+          className={classes.title}
+        >Sign-In</Typography>
           <input
             id="email"
             data-testid="email-input"
             onChange={ inputHandler }
             className="create_account-form-input"
           />
-        </label>
-        <label  className="login-form-input__label" htmlFor="user-email">
-          Username:
-          {' '}
           <input
             id="userName"
             data-testid="username-input"
             onChange={ inputHandler }
             className="create_account-form-input"
           />
-        </label>
         <section className="password-section">
-          <label className="login-form-input__label" htmlFor="password">
-            Password:
-            {' '}
             <input
               id="password"
               data-testid="password-input"
@@ -76,7 +124,6 @@ export default function SignIn() {
               onChange={ inputHandler }
               className="create_account-form-input"
               />
-          </label>
           <input
             type="checkbox"
             className="password-visibility"
@@ -89,7 +136,7 @@ export default function SignIn() {
           variant="contained"
           onClick={ SignIn }
           type="button"
-          // className="login-form-button"
+          className={classes.buttons}
           disabled={
             !(newUser.email.includes('@')
             && newUser.email.includes('.com')
@@ -99,6 +146,6 @@ export default function SignIn() {
         {userExists
         && <p style={ { color: 'red' } }>This user already exists</p>}
       </form>
-    </>
+    </ThemeProvider>
   );
 }
