@@ -41,7 +41,8 @@ export default function SignIn() {
       <form className="create_account-form">
         <h1 className="create_account-h1">Sign-In</h1>
         <label className="login-form-input__label" htmlFor="user-email">
-          Email
+          Email:
+          {' '}
           <input
             id="email"
             data-testid="email-input"
@@ -50,7 +51,8 @@ export default function SignIn() {
           />
         </label>
         <label  className="login-form-input__label" htmlFor="user-email">
-          Username
+          Username:
+          {' '}
           <input
             id="userName"
             data-testid="username-input"
@@ -60,7 +62,8 @@ export default function SignIn() {
         </label>
         <section className="password-section">
           <label className="login-form-input__label" htmlFor="password">
-            Password
+            Password:
+            {' '}
             <input
               id="password"
               data-testid="password-input"

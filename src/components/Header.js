@@ -30,12 +30,14 @@ export default function Header() {
           <button
             type="button"
             onClick={ () => navigate('/login') }
+            className="header-button"
           >
             Login
           </button>
           <button
             type="button"
             onClick={ () => navigate('/signin') }
+            className="header-button"
           >
           Create account
         </button>
