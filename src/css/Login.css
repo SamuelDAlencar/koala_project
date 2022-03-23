@@ -1,33 +1,3 @@
-html, body {
-  background-color: #222831;
-}
-
-.login-h1 {
-  color: #EEEEEE;
-  width: 150px;
-  margin: 0 0 80px;
-  font-size: 250%;
-}
-
-.login-form {
-  background-color: #222831;
-  color: #EEEEEE;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  padding: 100px;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.login-form-input__label {
-  width: 200%;
-  margin: 5% 0;
-  font-size: 120%;
-}
-
 .login-form-input {
   color: #EEEEEE;
   font-size: 90%;
@@ -57,7 +27,7 @@ html, body {
 
 .password-section {
   display: flex;
-  width: 200%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin: 15px 0 0;
@@ -68,7 +38,7 @@ html, body {
   appearance: none;
   font: inherit;
   padding: 1em;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   background-image: url("https://img.icons8.com/color/40/000000/invisible.png");
   background-size: 70%;
   background-position: center;

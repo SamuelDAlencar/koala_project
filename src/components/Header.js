@@ -1,9 +1,32 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { AppBar,
+  Button,
+  makeStyles,
+  Toolbar,
+  Typography,
+  IconButton
+} from '@material-ui/core';
+import { Menu } from "@material-ui/icons";
 import '../css/Header.css';
+import { AccountCircleRounded } from "@material-ui/icons";
 
 export default function Header() {
+  const useStyles = makeStyles({
+    toolBar: {
+      backgroundColor: "#222831",
+      display: "flex",
+      justifyContent: "space-around",
+    },
+
+    icon: {
+      transform: "scale(1.8)",
+      color: "#EEEEEE",
+    }
+  });
+  const classes = useStyles();
+
   const navigate = useNavigate();
   const store = useSelector(({ user: { email } }) => ({
     email,
@@ -17,37 +40,47 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="header">
-      <img
-        alt="user_icon"
-        src="https://img.icons8.com/fluency-systems-regular/48/000000/user.png"
-        className="user_icon__img"
-      />
-      {user
-        ? <h1 className="user__h1">{`Hey, ${user}!`}</h1>
-        : (
-        <>
-          <button
-            type="button"
-            onClick={ () => navigate('/login') }
-            className="header-button"
+    <AppBar>
+      <Toolbar className={ classes.toolBar }>
+        <IconButton>
+          <AccountCircleRounded className={ classes.icon } />
+        </IconButton>
+        {user
+          ?
+          <Typography
+            color="textPrimary"
+            gutterBottom
+            variant="h4"
+            align="center"
           >
-            Login
-          </button>
-          <button
-            type="button"
-            onClick={ () => navigate('/signin') }
-            className="header-button"
-          >
-          Create account
-        </button>
-        </>)
-      }
-      <img
-        alt="options_icon"
-        className="options_icon"
-        src="https://img.icons8.com/ios/50/000000/bulleted-list.png"
-      />
-    </header> 
+            {`Hey, ${user}!`}
+          </Typography> 
+          : (
+          <>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              type="button"
+              onClick={ () => navigate('/login') }
+            >
+              Login
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              type="button"
+              onClick={ () => navigate('/signin') }
+            >
+            Create account
+          </Button>
+          </>)
+        }
+        <IconButton>
+          <Menu className={ classes.icon } />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
   );
 }

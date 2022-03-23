@@ -3,9 +3,70 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginAction } from '../redux/actions';
 import { MIN_PASS_LENGTH } from '../consts';
+import {
+  Button,
+  TextField,
+  Typography,
+  ThemeProvider,
+  createTheme,
+  Container,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import '../css/Login.css';
 
 function Login() {
+  const useStyles = makeStyles({
+    title: {
+      color: '#EEEEEE',
+      margin: "200px 0 70px",
+    },
+
+    inputSection: {
+      display: "flex",
+      width: "60%",
+      maxWidth: "500px",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "15px 0 0",
+    },
+
+    input: {
+      width: "100%",
+      color: "#EEEEEE",
+      fontSize: "120%",
+    },
+
+    buttons: {
+      width: "40%",
+      maxWidth: "300px",
+      fontSize: "100%",
+      padding: "20px",
+      marginTop: "40px",
+    },
+
+    container: {
+      borderRadius: "0",
+      height: '100vh',
+      width: '100vw',
+      backgroundColor: "#222831",
+      color: "#EEEEEE",
+      display: "flex",
+      flexDirection: "column",
+      textAlign: "center",
+      alignItems: "center",
+    },
+  });
+  const classes = useStyles();
+
+  const theme = createTheme({
+    palette: {
+      action: {
+        // disabledBackground: '#393E46',
+        // disabled: 'silver'
+      }
+    }
+  });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [user, setUser] = useState({
@@ -46,26 +107,44 @@ function Login() {
   }
 
   return (
-    <>
-      <form className='login-form'>
-        <h1 className="login-h1">Log-In</h1>
-        <label className="login-form-input__label"  htmlFor="user-email">
-          Email:
-          {' '}
-          <input
+    <ThemeProvider theme={theme}>
+      <Container
+        className={classes.container}
+        maxWidth="xl"
+      >
+        <Typography
+          variant="h2"
+          className={classes.title}
+        >Log-In</Typography>
+        <Container
+          className={classes.inputSection}
+          disableGutters
+        >
+          <TextField
+            label="Email"
+            autoComplete="off"
+            placeholder="yourEmail@hotmail.com"
+            type="email"
+            className={classes.input}
+            InputProps={{
+              className: classes.input}}
+            variant="filled"
             id="email"
-            className="login-form-input"
             data-testid="email-input"
             onChange={ inputHandler }
           />
-        </label>
-        <section className="password-section">
-          <label className="login-form-input__label" htmlFor="password">
-            Password:
-            {' '}
-            <input
+        </Container>
+        <Container
+          className={classes.inputSection}
+          disableGutters
+        >
+            <TextField
+              label="password"
+              className={classes.input}
+              InputProps={{
+                className: classes.input}}
+              variant="filled"
               id="password"
-              className="login-form-input"
               data-testid="password-input"
               type={
                 passVisibility
@@ -74,13 +153,12 @@ function Login() {
               }
               onChange={ inputHandler }
             />
-          </label>
           <input
             type="checkbox"
             className="password-visibility"
             onClick={
               () => setPassVisibility((prevState) => !prevState) } />
-        </section>
+        </Container>
           {invalidFields.inexistentUser
             && <p style={ { color: 'red' } }>
                 There's nobody with this email in our database
@@ -89,22 +167,31 @@ function Login() {
             && <p style={ { color: 'red' } }>
                 Wrong password
               </p>}
-        <button
-          onClick={ logButton }
-          type="button"
-          className="login-form-button"
-          disabled={
-            !(user.email.includes('@')
-            && user.email.includes('.com')
-            && user.password.length >= MIN_PASS_LENGTH)
-          }
-        >Log In</button>
-        <button onClick={ () => navigate('/signin') }
-        className="login-form-button">
+          <Button
+            style={{ marginTop: "100px" }}
+            size="large"
+            color="primary"
+            variant="contained"
+            onClick={ logButton }
+            type="button"
+            className={classes.buttons}
+            disabled={
+              !(user.email.includes('@')
+              && user.email.includes('.com')
+              && user.password.length >= MIN_PASS_LENGTH)
+            }
+          >Log In</Button>
+        <Button
+          size="large"
+          onClick={ () => navigate('/signin') }
+          className={classes.buttons}
+          color="primary"
+          variant="outlined"
+        >
           Create account
-        </button>
-      </form>
-    </>
+        </Button>
+      </Container>
+    </ThemeProvider>
   );
 }
 

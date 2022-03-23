@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MIN_PASS_LENGTH } from '../consts';
@@ -82,16 +83,19 @@ export default function SignIn() {
             onClick={
               () => setPassVisibility(!passVisibility) } />
         </section>
-        <button
+        <Button
+          size="large"
+          color="primary"
+          variant="contained"
           onClick={ SignIn }
           type="button"
-          className="login-form-button"
+          // className="login-form-button"
           disabled={
             !(newUser.email.includes('@')
             && newUser.email.includes('.com')
             && newUser.password.length >= MIN_PASS_LENGTH)
           }
-        >Create account</button>
+        >Create account</Button>
         {userExists
         && <p style={ { color: 'red' } }>This user already exists</p>}
       </form>
