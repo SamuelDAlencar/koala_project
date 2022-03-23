@@ -15,33 +15,44 @@ import { makeStyles } from '@material-ui/core/styles';
 import '../css/Login.css';
 
 function Login() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#00ADB5'
+      }
+    }
+  });
+
   const useStyles = makeStyles({
     title: {
       color: '#EEEEEE',
-      margin: "200px 0 70px",
+      margin: "100px 0 70px",
     },
 
     inputSection: {
       display: "flex",
-      width: "60%",
+      width: "90%",
       maxWidth: "500px",
       justifyContent: "center",
       alignItems: "center",
-      margin: "15px 0 0",
+      margin: "15px 0 0 0",
     },
 
     input: {
       width: "100%",
       color: "#EEEEEE",
-      fontSize: "120%",
+      fontSize: "100%",
+    },
+
+    buttonSection: {
     },
 
     buttons: {
-      width: "40%",
+      width: "60%",
       maxWidth: "300px",
-      fontSize: "100%",
-      padding: "20px",
-      marginTop: "40px",
+      fontSize: "85%",
+      padding: "15px",
+      marginTop: "20px",
     },
 
     container: {
@@ -58,14 +69,7 @@ function Login() {
   });
   const classes = useStyles();
 
-  const theme = createTheme({
-    palette: {
-      action: {
-        // disabledBackground: '#393E46',
-        // disabled: 'silver'
-      }
-    }
-  });
+  //---------------------------------------------------------------
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -167,29 +171,38 @@ function Login() {
             && <p style={ { color: 'red' } }>
                 Wrong password
               </p>}
+          <Container className={classes.buttonSection}>
+            <Button
+              style={{ marginTop: "100px" }}
+              size="large"
+              color="primary"
+              variant="contained"
+              onClick={ logButton }
+              type="button"
+              className={classes.buttons}
+              disabled={
+                !(user.email.includes('@')
+                && user.email.includes('.com')
+                && user.password.length >= MIN_PASS_LENGTH)
+              }
+            >Log In</Button>
           <Button
-            style={{ marginTop: "100px" }}
             size="large"
-            color="primary"
-            variant="contained"
-            onClick={ logButton }
-            type="button"
+            onClick={ () => navigate('/signin') }
             className={classes.buttons}
-            disabled={
-              !(user.email.includes('@')
-              && user.email.includes('.com')
-              && user.password.length >= MIN_PASS_LENGTH)
-            }
-          >Log In</Button>
-        <Button
-          size="large"
-          onClick={ () => navigate('/signin') }
-          className={classes.buttons}
-          color="primary"
-          variant="outlined"
-        >
-          Create account
-        </Button>
+            color="primary"
+            variant="outlined"
+          >
+            Create account
+          </Button>
+          <Button
+            className={classes.buttons}
+            size="small"
+            style={{padding: "5px", textDecoration: "underline", color: "#00ADB5"}}
+          >
+            I forgot my password
+          </Button>
+        </Container>
       </Container>
     </ThemeProvider>
   );
