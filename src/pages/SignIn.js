@@ -1,4 +1,4 @@
-import { Button, createTheme, makeStyles, ThemeProvider, Typography } from "@material-ui/core";
+import { Button, Container, createTheme, makeStyles, TextField, ThemeProvider, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MIN_PASS_LENGTH } from '../consts';
@@ -42,7 +42,7 @@ export default function SignIn() {
       maxWidth: "300px",
       fontSize: "85%",
       padding: "15px",
-      marginTop: "20px",
+      marginTop: "100px",
     },
 
     container: {
@@ -95,25 +95,40 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={ theme }>
-      <form className="create_account-form">
+      <Container className={classes.container}>
       <Typography
           variant="h2"
           className={classes.title}
         >Sign-In</Typography>
-          <input
+        <Container className={classes.inputSection}>
+          <TextField
             id="email"
+            label="Email"
+            autoComplete="off"
+            placeholder="yourEmail@hotmail.com"
             data-testid="email-input"
             onChange={ inputHandler }
-            className="create_account-form-input"
-          />
-          <input
+            className={classes.input}
+            inputProps={{
+              className: classes.input
+            }}
+            />
+        </Container>
+        <Container className={classes.inputSection}>
+          <TextField
+            label="Username"
             id="userName"
             data-testid="username-input"
             onChange={ inputHandler }
-            className="create_account-form-input"
-          />
-        <section className="password-section">
-            <input
+            className={classes.input}
+            inputProps={{
+              className: classes.input
+            }}
+            />
+        </Container>
+        <Container className={classes.inputSection}>
+            <TextField
+              label="password"
               id="password"
               data-testid="password-input"
               type={
@@ -122,14 +137,17 @@ export default function SignIn() {
                 : 'password'
               }
               onChange={ inputHandler }
-              className="create_account-form-input"
-              />
+              className={classes.input}
+              inputProps={{
+                className: classes.input
+              }}
+            />
           <input
             type="checkbox"
             className="password-visibility"
             onClick={
               () => setPassVisibility(!passVisibility) } />
-        </section>
+        </Container>
         <Button
           size="large"
           color="primary"
@@ -145,7 +163,7 @@ export default function SignIn() {
         >Create account</Button>
         {userExists
         && <p style={ { color: 'red' } }>This user already exists</p>}
-      </form>
+      </Container>
     </ThemeProvider>
   );
 }
