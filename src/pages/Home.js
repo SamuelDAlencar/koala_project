@@ -5,14 +5,10 @@ import { useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/actions";
 import Header from "../components/Header";
 import {
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
   Container,
   createTheme,
   Grid,
-  TextField,
+  Box,
   ThemeProvider } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from "../components/Footer";
@@ -22,12 +18,12 @@ function Home() {
     card: {
       boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
       backgroundColor: "#fafafa",
-      margin: "5%",
-      width: "90%",
-      height: "350px",
+      width: "360px",
+      height: "300px",
     },
     media: {
-      height: 300,
+      width: "100%",
+      height: "70%",
     },
     input: {
       width: "70%",
@@ -42,7 +38,6 @@ function Home() {
       marginTop: "110px",
       display: "flex",
       width: "100%",
-      margin: "10% auto",
     },
     cards: {
     }
@@ -79,16 +74,27 @@ function Home() {
     <ThemeProvider theme={ theme }>
       <Header />
       <Container>
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={6}
+        >
           {store.products
             && store.products.map((product) => 
-            <Card
+            <Grid
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              item
               key={product.id}
-              className={classes.card}
             >
-              <CardMedia className={classes.media} image={product.thumbnail} />
-              <CardContent>{product.title}</CardContent>
-            </Card>
+              <Box
+                className={classes.card}
+              >
+                <img className={classes.media} alt={product.title} src={product.thumbnail} />
+                <h2>{product.title}</h2>
+              </Box>
+            </Grid>
           )}
         </Grid>
       </Container>
