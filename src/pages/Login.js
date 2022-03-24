@@ -132,7 +132,6 @@ function Login() {
             className={classes.input}
             InputProps={{
               className: classes.input}}
-            variant="filled"
             id="email"
             data-testid="email-input"
             onChange={ inputHandler }
@@ -147,7 +146,6 @@ function Login() {
               className={classes.input}
               InputProps={{
                 className: classes.input}}
-              variant="filled"
               id="password"
               data-testid="password-input"
               type={
