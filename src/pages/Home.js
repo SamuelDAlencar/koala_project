@@ -18,12 +18,12 @@ function Home() {
     card: {
       boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
       backgroundColor: "#fafafa",
-      width: "360px",
-      height: "300px",
+      width: "100%",
+      height: "320px",
     },
     media: {
       width: "100%",
-      height: "70%",
+      height: "80%",
     },
     input: {
       width: "70%",
