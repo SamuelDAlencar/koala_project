@@ -26,7 +26,7 @@ function Login() {
   const useStyles = makeStyles({
     title: {
       color: '#EEEEEE',
-      margin: "100px 0 70px",
+      margin: "50px 0",
     },
 
     inputSection: {
@@ -196,7 +196,12 @@ function Login() {
           <Button
             className={classes.buttons}
             size="small"
-            style={{padding: "5px", textDecoration: "underline", color: "#00ADB5"}}
+            style={{
+              fontSize: "70%",
+              padding: "5px",
+              textDecoration: "underline",
+              color: "#00ADB5"
+            }}
           >
             I forgot my password
           </Button>

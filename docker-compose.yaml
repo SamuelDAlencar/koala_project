@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  frontend:
+    build: ./
+    restart: always
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    volumes:
+      - /home/coala/Documents/reps/personal_projects/koala_project:/app/
+
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: "KOALA_DB"
+      MYSQL_ROOT_PASSWORD: "-96G04a25o26E."
+    ports:
+      - "3307:3306"
+    expose:
+      - "3307"
+
+volumes:
+  app:
+  mysql_db:
