@@ -1,6 +1,7 @@
 export const LOG_IN = 'LOG_IN';
 const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS';
 export const REQUEST_PRODUCTS_SUCCESS = 'REQUEST_PRODUCTS_SUCCESS';
+export const TOGGLE_HOME = 'TOGGLE_HOME';
 
 export const loginAction = (user) => ({
   type: LOG_IN,
@@ -27,3 +28,5 @@ export const fetchProducts = (search) => {
     }
   }
 };
+
+export const toggleHomeAction = (toggle) => ({type: TOGGLE_HOME, payload: toggle })
