@@ -19,7 +19,7 @@ import { makeStyles } from '@material-ui/core/styles';
 function Home() {
   const useStyles = makeStyles({
     homeContainer: {
-      paddingTop: "80px",
+      paddingTop: "70px",
       backgroundColor: "#393E46",
     },
     card: {
