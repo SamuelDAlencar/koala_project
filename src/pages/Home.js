@@ -7,28 +7,31 @@ import Header from "../components/Header";
 import {
   Container,
   createTheme,
-  Grid,
-  Box,
-  ThemeProvider } from "@material-ui/core";
+  ThemeProvider, 
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  CardActionArea} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 function Home() {
   const useStyles = makeStyles({
+    homeContainer: {
+      paddingTop: "80px",
+      backgroundColor: "#393E46",
+    },
     card: {
       boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
       backgroundColor: "#fafafa",
       width: "100%",
       height: "320px",
+      margin: "5% 0",
     },
     media: {
       width: "100%",
       height: "80%",
-    },
-    cards: {
-    },
-    homeContainer: {
-      marginTop: "80px",
     }
   })
   const classes = useStyles();
@@ -56,30 +59,31 @@ function Home() {
       <Header />
       {store.toggleHome &&
         <Container className={classes.homeContainer}>
-          <Grid
-            container
-            spacing={6}
-          >
-            {store.products
-              && store.products.map((product) => 
-              <Grid
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-                item
-                key={product.id}
-              >
-                <Box
-                  className={classes.card}
-                >
-                  <img className={classes.media} alt={product.title} src={product.thumbnail} />
-                  <h2>{product.title}</h2>
-                </Box>
-              </Grid>
-            )}
-          </Grid>
-        </Container>}
+          {store.products
+            && store.products.map((product) => 
+            <Card
+
+              key={product.id}
+              className={classes.card}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  className={classes.media}
+                  alt={product.title}
+                  image={product.thumbnail}
+                />
+                <CardContent>
+                  <Typography
+                    component="div"
+                  >
+                    {product.title}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          )}
+      </Container>}
       {/* <Footer /> */}
     </ThemeProvider>
   );
