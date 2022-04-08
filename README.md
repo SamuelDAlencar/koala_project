@@ -2,7 +2,7 @@
 
 An E-commerce website site made using Mercado Libre's API
 
-## Technologies
+<h2>Technologies</h2>
 
   - ReactJS
   - React Hooks
