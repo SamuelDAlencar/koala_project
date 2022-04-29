@@ -14,6 +14,10 @@ export default function Product({ product }) {
     media: {
       width: '100%',
       height: '80%',
+      borderBottom: '1px solid #393E46'
+    },
+    productTitle: {
+      fontSize: '150%'
     }
   });
 
@@ -35,6 +39,7 @@ export default function Product({ product }) {
         <CardContent>
           <Typography
             component="div"
+            className={classes.productTitle}
           >
             {product.title}
           </Typography>
