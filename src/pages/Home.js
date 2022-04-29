@@ -1,39 +1,37 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { fetchProducts } from "../redux/actions";
-import Header from "../components/Header";
+// eslint-disable react-hooks/exhaustive-deps
+import React from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/actions';
+import Header from '../components/Header';
 import {
   Container,
   createTheme,
-  ThemeProvider, 
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActionArea} from "@material-ui/core";
+  ThemeProvider,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Product from '../components/Product';
 // import Footer from "../components/Footer";
 
 function Home() {
   const useStyles = makeStyles({
     homeContainer: {
-      paddingTop: "70px",
-      backgroundColor: "#393E46",
+      paddingTop: '70px',
+      backgroundColor: '#393E46',
     },
     card: {
-      boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
-      backgroundColor: "#fafafa",
-      width: "100%",
-      height: "320px",
-      margin: "5% 0",
+      boxShadow: '0 5px 8px 0 rgba(0, 0, 0, 0.3)',
+      backgroundColor: '#fafafa',
+      width: '100%',
+      height: '320px',
+      margin: '5% 0',
     },
     media: {
-      width: "100%",
-      height: "80%",
+      width: '100%',
+      height: '80%',
     }
-  })
+  });
   const classes = useStyles();
 
   const theme = createTheme({
@@ -55,35 +53,15 @@ function Home() {
   }, []);
 
   return (
-    <ThemeProvider theme={ theme }>
+    <ThemeProvider theme={theme}>
       <Header />
       {store.toggleHome &&
         <Container className={classes.homeContainer}>
           {store.products
-            && store.products.map((product) => 
-            <Card
-
-              key={product.id}
-              className={classes.card}
-            >
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={classes.media}
-                  alt={product.title}
-                  image={product.thumbnail}
-                />
-                <CardContent>
-                  <Typography
-                    component="div"
-                  >
-                    {product.title}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          )}
-      </Container>}
+            && store.products.map((product) =>
+              <Product key={product.id} product={product} />
+            )}
+        </Container>}
       {/* <Footer /> */}
     </ThemeProvider>
   );
